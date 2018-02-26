@@ -9,17 +9,32 @@
   </head>
 
   <body>
-  	<div class="navbar navbar-dark bg-dark">
-      <div class="form-line"><% if user_signed_in? %>
-          <%= link_to "Log Out", logout_path, method: :delete, class: 'nav-item btn btn-danger' %>
-          <%= link_to "Post", new_post_path, class: 'nav-item btn btn btn-danger' %>
-          <%= link_to "All Posts", posts_path, class: 'nav-item btn btn-danger' %>
-          <%= link_to "Profile", current_user, class: 'nav-item btn btn btn-danger' %>
-        <% else %>
-          <%= link_to "New User", new_user_path, class: 'nav-item btn btn-danger' %>
-          <%= link_to "Log In", login_view_path, class: 'nav-item btn btn btn-danger' %>
-        <% end %></div>
-    </div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <%= link_to "Home", root_path, class: 'navbar-brand' %>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="ml-auto p-2 nav-item dropdown">
+              <%= link_to current_user.first_name, '#', class: 'nav-link dropdown-toggle', role: 'button', data: {toggle: 'dropdown'} %>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %>
+                <%= link_to "Profile", current_user, class: 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Log Out", logout_path, method: :delete, class: 'dropdown-item' %>
+              </div>
+            </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "New User", new_user_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log In", login_view_path, class: 'nav-link' %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
