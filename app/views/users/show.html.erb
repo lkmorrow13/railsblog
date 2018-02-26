@@ -1,13 +1,28 @@
-<h1><%= @user.first_name %></h1>
-<%= link_to "All User", users_path %>
-<%= link_to "Delete", @user, method: :delete %>
-<%= link_to "Edit User", edit_user_path(@user) %>
-
-<div class="posts">
-	<% @user.posts.each do |post| %>
-		<div class="post">
-			<%= post.content %>
-			<%= post.id %>
+<div class="container greybackground marginTop">
+	<div class="row">
+		<div class="col-5 postformpadding marginTop offset-1">
+			<img src="<%= @user.img %>" alt="Profile Picture" class="postimagesize">
+			<%= link_to "Delete", @user, method: :delete %>
 		</div>
-	<% end %>
+			<div class="col-5 marginTop">
+				<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+				<h3><%= @user.bio %></h3>
+			</div>
+	</div>
+</div>
+
+<div class="container greybackground marginTop">
+	<div class="row">
+		<div class="col-8 offset-2">
+			<div class="posts">
+				<% @user.posts.each do |post| %>
+					<div class="post">
+						<h1 class="text-center"><%= post.title %></h1>
+						<img src="<%= post.img %>" alt="image post"	class='postimagesize picCenter d-block'>
+						<h3 class="text-center"><%= post.content %></h3>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
