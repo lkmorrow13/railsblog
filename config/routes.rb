@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+	get '/login', to: 'sessions#new', as: 'login_view'
+	post '/login', to: 'sessions#create', as: 'login'
+	delete '/logout', to: 'sessions#destroy', as: 'logout'
+
+	resources :posts
+	resources :users
+	resources :home
+
+	root 'home#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -9,6 +9,17 @@
   </head>
 
   <body>
+  	<div class="navbar navbar-dark bg-dark">
+      <div class="form-line"><% if user_signed_in? %>
+          <%= link_to "Log Out", logout_path, method: :delete, class: 'nav-item btn btn-danger' %>
+          <%= link_to "Post", new_post_path, class: 'nav-item btn btn btn-danger' %>
+          <%= link_to "All Posts", posts_path, class: 'nav-item btn btn-danger' %>
+          <%= link_to "Profile", current_user, class: 'nav-item btn btn btn-danger' %>
+        <% else %>
+          <%= link_to "New User", new_user_path, class: 'nav-item btn btn-danger' %>
+          <%= link_to "Log In", login_view_path, class: 'nav-item btn btn btn-danger' %>
+        <% end %></div>
+    </div>
     <%= yield %>
   </body>
 </html>
