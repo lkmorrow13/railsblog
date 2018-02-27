@@ -1,1 +1,38 @@
-<h1><%= @post.title %></h1>
+<div class="container greybackground marginTop">
+	<div class="row">
+		<div class="col-8 offset-2 postformpadding">
+			<div class="post marginTop postlistbackground">
+				<h1 class="text-center"><%= @post.user.first_name %></h1>
+				<img src="<%= @post.img %>" alt="image post"	class='postimagesize picCenter d-block'>
+				<h1 class="text-center"><%= @post.title %></h1>
+				<h3 class="text-center"><%= @post.content %></h3>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container marginTop">
+	<div class="row greybackground">
+		<div class="col-8 offset-2 postformpadding">
+			<h1 class="text-center">Comment!</h1>
+			<%= form_with model: @comment, local: true do |f| %>
+				<div class="form-group">
+					<!-- <label for="Image Url"></label> -->
+					<%= f.text_field :img, placeholder: 'Image Url', class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<!-- <label for="Content"></label> -->
+					<%= f.text_area :content, placeholder: 'Content', class: 'form-control' %>
+				</div>
+				<%= f.submit class: 'btn btn-danger' %>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="container marginTop">
+	<div class="row greybackground">
+		<div class="col-8 offset-2 postformpadding">
+			<h1 class="text-center">Most Recent Comments</h1>
+			
+		</div>
+	</div>
+</div>
