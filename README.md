@@ -1,24 +1,5 @@
-# README
+# Anime blog site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This site is set up for people to meet and talk about different anime topics and generally have long discussions.
+You can create accounts and start your own discussions which other users can comment on.
+You can edit your own account.
