@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = Comment.last(10).reverse
+    @comment = Comment.new
   end
 
   def edit

@@ -17,12 +17,13 @@
 			<%= form_with model: @comment, local: true do |f| %>
 				<div class="form-group">
 					<!-- <label for="Image Url"></label> -->
-					<%= f.text_field :img, placeholder: 'Image Url', class: 'form-control' %>
+					<%= f.text_field :url, placeholder: 'Image Url', class: 'form-control' %>
 				</div>
 				<div class="form-group">
 					<!-- <label for="Content"></label> -->
 					<%= f.text_area :content, placeholder: 'Content', class: 'form-control' %>
 				</div>
+				<%= f.hidden_field :post_id, value: @post.id %>
 				<%= f.submit class: 'btn btn-danger' %>
 			<% end %>
 		</div>
@@ -32,7 +33,13 @@
 	<div class="row greybackground">
 		<div class="col-8 offset-2 postformpadding">
 			<h1 class="text-center">Most Recent Comments</h1>
-			
+			<% @post.comments.each do |comment| %>
+				<div class="post marginTop postlistbackground">
+					<h4 class="text-center"><%= comment.user.first_name %></h4>
+					<img src="<%= comment.url %>" alt="Comment Image" class='postimagesize picCenter d-block'>
+					<h4 class="text-center"><%= comment.content %></h4>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
