@@ -1,5 +1,7 @@
 <div class="post marginTop postlistbackground">
-	<h1 class="text-center"><%= post.user.first_name %></h1>
-	<img src="<%= post.img %>" alt="image post"	class='postimagesize picCenter d-block'>
-	<h1 class="text-center"><%= post.title %></h1>
+	<%= link_to post, class: 'poop' do %>
+		<h1 class="text-center"><%= post.user.first_name %></h1>
+		<img src="<%= post.img %>" alt="image post"	class='postimagesize picCenter d-block'>
+		<h1 class="text-center"><%= post.title %></h1>
+	<% end %>
 </div>
