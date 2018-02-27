@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    params[:user].delete(:password) if params[:user][:password].blank?
     @user.update_attributes(user_params)
     redirect_to @user
   end
