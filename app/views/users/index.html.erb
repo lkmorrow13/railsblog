@@ -1,5 +1,14 @@
-<div>
-	<% @users.each do |user| %>
-		<%= user.first_name %>
-	<% end %>
+
+<div class="container greybackground marginTop">
+	<div class="row postformpadding">
+		<div class="col-8 offset-2">
+			<h1 class="text-center">All Users</h1>
+				<% @users.each do |user| %>
+					<div class="post marginTop postlistbackground">
+				 	<h1 class="text-center"><%= user.first_name %></h1>
+					<img src="<%= user.img %>" alt="Profile Pic" class="postpicsizing d-block piccenter">
+					</div>
+				<% end %>
+		</div>
+	</div>
 </div>
