@@ -5,8 +5,10 @@
 			<h1 class="text-center">All Users</h1>
 				<% @users.each do |user| %>
 					<div class="post marginTop postlistbackground">
-				 	<h1 class="text-center"><%= user.first_name %></h1>
-					<img src="<%= user.img %>" alt="Profile Pic" class="postpicsizing d-block piccenter">
+						<%= link_to user, class: 'poop' do %>
+				 			<h1 class="text-center"><%= user.first_name %></h1>
+							<img src="<%= user.img %>" alt="Profile Pic" class="postpicsizing d-block piccenter">
+						<% end %>
 					</div>
 				<% end %>
 		</div>
