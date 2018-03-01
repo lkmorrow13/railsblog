@@ -9,21 +9,23 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.create(comment_params)
+    redirect_to @comment.post
   end
 
   def edit
     @comment = current_user.comments.find(params[:id])
+    
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.update_attributes(comment_params)
-    # redirect_to current_user
+    redirect_to @comment.post
   end
 
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   def show

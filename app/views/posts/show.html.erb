@@ -6,6 +6,8 @@
 				<img src="<%= @post.img %>" alt="image post"	class='postimagesize picCenter d-block'>
 				<h1 class="text-center"><%= @post.title %></h1>
 				<h3 class="text-center"><%= @post.content %></h3>
+				<%= link_to "Delete", @post, method: :delete %>
+				<%= link_to "edit", edit_post_path  %>
 			</div>
 		</div>
 	</div>
@@ -38,6 +40,8 @@
 					<h4 class="text-center"><%= comment.user.first_name %></h4>
 					<img src="<%= comment.url %>" alt="Comment Image" class='postimagesize picCenter d-block'>
 					<h4 class="text-center"><%= comment.content %></h4>
+					<%= link_to "Delete", comment, method: :delete %>
+					<%= link_to "edit", edit_comment_path(comment)  %>
 				</div>
 			<% end %>
 		</div>
